@@ -1,0 +1,125 @@
+// Миксины для SCSS
+@use './variables' as *;
+
+$spacing-scale: (
+  2: 2px,
+  4: 4px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  28: 28px,
+  32: 32px,
+  36: 36px,
+  40: 40px,
+  44: 44px,
+  48: 48px,
+  52: 52px,
+  56: 56px,
+  60: 60px,
+  64: 64px,
+  72: 72px,
+  80: 80px,
+  96: 96px,
+  120: 120px,
+);
+
+// Миксин для флексбокса
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Миксин для абсолютного позиционирования
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin fixed-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// Миксин для обрезания текста
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Миксин для скруглённых углов
+@mixin rounded($radius: $radius-card) {
+  border-radius: $radius;
+}
+
+// Миксин для тени
+@mixin box-shadow($shadow: $shadow-md) {
+  box-shadow: $shadow;
+}
+
+// Миксин для переходов
+@mixin transition($properties: all, $duration: $transition-base) {
+  transition: $properties $duration;
+}
+
+// Миксин для гридов
+@mixin grid-auto-fit($min: 300px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $space-24;
+}
+
+// Миксин для контейнера
+@mixin container-padding {
+  padding-left: $container-padding-mobile;
+  padding-right: $container-padding-mobile;
+
+  @include respond-to('md') {
+    padding-left: $container-padding-tablet;
+    padding-right: $container-padding-tablet;
+  }
+
+  @include respond-to('lg') {
+    padding-left: $container-padding-desktop;
+    padding-right: $container-padding-desktop;
+  }
+}
+
+// Миксин для hover primary btn
+@mixin hover-btn {
+  transition: background-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: 0 4px 12px 0 rgba(255, 107, 0, 0.25);
+    background-color: $color-accent-hover;
+  }
+}
