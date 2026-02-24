@@ -31,7 +31,7 @@
         </div>
         <div class="footer__address">
           <h4 class="footer__address-title">Адрес</h4>
-          <h4 class="footer__address-text">д.Сепыч,<br>ул. Нагорная, д. 5</h4>
+          <h4 class="footer__address-text">д.Сепыч,<br>ул. Нагорная, д. 4</h4>
         </div>
       </div>
       <div class="footer__legal">
