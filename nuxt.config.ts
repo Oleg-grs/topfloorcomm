@@ -1,9 +1,8 @@
-
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 
 export default {
   ssr: true,
-  
+
   compatibilityDate: '2026-02-11',
 
   app: {

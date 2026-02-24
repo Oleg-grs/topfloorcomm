@@ -1,6 +1,6 @@
 <template>
   <div class="form-card">
-    <h3 class="form-card__title">Узнайте стоимость вашего пола</h3>
+    <h3 class="form-card__title">Узнайте стоимость пола</h3>
 
     <form @submit.prevent="onSubmit">
       <div class="form-card__group">
@@ -98,8 +98,7 @@
         </label>
       </div>
 
-      <p v-if="error" class="form-card__error">
-        {{ error }}
+      <p v-if="error" class="form-card__error" v-html="error">
       </p>
     </form>
   </div>
@@ -173,16 +172,29 @@
     border: 1px solid $color-border;
     box-shadow: $shadow-xl;
 
+    @media (max-width: $breakpoint-xs) {
+      padding: $space-24;
+    }
+
 
     &__title {
       font-size: $font-size-3xl;
       margin-bottom: $space-32;
       text-align: center;
+
+      @media (max-width: $breakpoint-xs) {
+        font-size: $font-size-xl;
+        margin-bottom: $space-24;
+      }
     }
 
     &__group {
       position: relative;
       margin-bottom: $space-16;
+
+      @media (max-width: $breakpoint-xs) {
+        margin-bottom: $space-12;
+      }
     }
 
     &__legal {
@@ -303,4 +315,10 @@
     opacity: 1;
     transform: scaleY(1) translateY(0);
   }
+</style>
+
+<style lang="scss">
+.form-card__error a {
+  color: $color-accent;
+}
 </style>

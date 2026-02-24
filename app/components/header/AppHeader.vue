@@ -18,6 +18,7 @@
                 <NuxtLink
                     :to="{ path: item.path, hash: item.hash }"
                     class="header__nav-link"
+                    replace
                 >
                   {{ item.label }}
                 </NuxtLink>

@@ -1,28 +1,23 @@
 import { ref, onUnmounted } from 'vue'
 
 export const useScrollLock = () => {
-	const isLocked = useState('scroll-lock', () => false)
+	const isLocked = ref(false)
 	const scrollbarWidth = ref(0)
-	let originalBodyStyles = useState('scroll-lock-styles', () => null)
 
-	const getScrollbarWidth = () => {
-		if (typeof window === 'undefined') return 0
-		return window.innerWidth - document.documentElement.clientWidth
-	}
+	const getScrollbarWidth = () =>
+		typeof window === 'undefined' ? 0 : window.innerWidth - document.documentElement.clientWidth
 
 	const lockScroll = () => {
 		if (isLocked.value || typeof document === 'undefined') return
-
 		const body = document.body
 		scrollbarWidth.value = getScrollbarWidth()
 
-		// Сохраняем оригинальные стили
-		originalBodyStyles = {
-			paddingRight: body.style.paddingRight,
-			overflow: body.style.overflow
-		}
-
-		// Блокируем скролл
+		const scrollY = window.scrollY
+		body.style.position = 'fixed'
+		body.style.top = `-${scrollY}px`
+		body.style.left = '0'
+		body.style.right = '0'
+		body.style.width = '100%'
 		body.style.overflow = 'hidden'
 		body.style.paddingRight = `${scrollbarWidth.value}px`
 
@@ -30,29 +25,36 @@ export const useScrollLock = () => {
 	}
 
 	const unlockScroll = () => {
-		if (!isLocked.value || !originalBodyStyles || typeof document === 'undefined') return
+		if (!isLocked.value || typeof document === 'undefined') return
 		const body = document.body
+		const html = document.documentElement
 
-		// Восстанавливаем стили
-		body.style.overflow = originalBodyStyles.overflow
-		body.style.paddingRight = originalBodyStyles.paddingRight
+		// Читаем сохранённую позицию из top
+		const scrollY = Math.abs(parseInt(body.style.top || '0'))
 
-		originalBodyStyles = null
+		// Убираем fixed
+		body.style.position = ''
+		body.style.top = ''
+		body.style.left = ''
+		body.style.right = ''
+		body.style.width = ''
+		body.style.overflow = ''
+		body.style.paddingRight = ''
+
+		const prevScrollBehavior = html.style.scrollBehavior
+		html.style.scrollBehavior = 'auto'
+		body.style.scrollBehavior = 'auto'
+
+		window.scrollTo(0, scrollY)
+
+		html.style.scrollBehavior = prevScrollBehavior
+		body.style.scrollBehavior = ''
+
 		isLocked.value = false
 		scrollbarWidth.value = 0
 	}
 
-	// Автоматическая очистка
-	onUnmounted(() => {
-		if (isLocked.value) {
-			unlockScroll()
-		}
-	})
+	onUnmounted(() => isLocked.value && unlockScroll())
 
-	return {
-		lockScroll,
-		unlockScroll,
-		isLocked,
-		scrollbarWidth
-	}
+	return { lockScroll, unlockScroll, isLocked, scrollbarWidth }
 }

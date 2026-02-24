@@ -218,13 +218,18 @@
     max-width: 1000px;
     max-height: 90vh;
     background-color: #0f1216;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
     display: flex;
     flex-direction: column;
-    padding: 32px;
-    gap: 24px;
+    padding: $space-32;
+    gap: $space-24;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+
+    @media (max-width: $breakpoint-xs) {
+      padding: $space-12 $space-24;
+      gap: 0;
+    }
 
     &__overlay {
       position: fixed;
@@ -248,8 +253,8 @@
       border: none;
       color: $color-text-main;
       cursor: pointer;
-      padding: 8px;
-      border-radius: 8px;
+      padding: $space-8;
+      border-radius: $radius-small;
       transition: background-color 0.2s ease;
 
       &:hover {
@@ -262,7 +267,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
+      min-height: 500px;
+
+      @media (max-width: $breakpoint-xs) {
+        min-height: 370px;
+      }
     }
 
     &__image-container {

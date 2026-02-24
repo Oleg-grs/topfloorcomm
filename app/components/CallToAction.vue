@@ -29,10 +29,10 @@
       padding: $space-80 $space-64;
       background: $color-bg-gradient;
       border-radius: $radius-large;
-    }
 
-    &__title {
-
+      @media (max-width: $breakpoint-xs) {
+        padding: $space-32 $space-16;
+      }
     }
 
     &__subtitle {

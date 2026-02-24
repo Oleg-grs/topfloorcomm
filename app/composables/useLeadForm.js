@@ -16,7 +16,7 @@ export const useLeadForm = () => {
 			return true
 		} catch (e) {
 			console.error(e)
-			error.value = 'Не удалось отправить заявку. Попробуйте ещё раз.'
+			error.value = 'Мы уже работаем над решением проблемы. А пока Вы можете нам <br> <a href="tel:+79292787853">позвонить +7 (929) 278-78-53</a>'
 			return false
 		} finally {
 			isSubmitting.value = false

@@ -8,7 +8,7 @@
           <div class="hero__content">
             <h1 class="hero__title">Промышленные бетонные полы под ключ в Ижевске и по России</h1>
             <p class="hero__text" >
-              Проектируем и устраиваем долговечные бетонные и полимерные полы для гаражей, складов и производственных помещений. Берём на себя всё — от подготовки основания до финишного покрытия
+              Качество и Профессионализм — Наша философия
             </p>
 
             <div class="hero__actions">
@@ -38,8 +38,7 @@
 <style lang="scss" scoped>
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 720px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -118,9 +117,11 @@
       display: flex;
       flex-direction: column;
       gap: $space-24;
+      animation: fadeInUp 0.8s ease-out;
 
       @media (max-width: $breakpoint-xs) {
         padding-bottom: $space-24;
+        gap: $space-16;
       }
     }
 
@@ -145,6 +146,10 @@
       font-size: $font-size-lg;
       color: $color-text-muted;
       margin-bottom: $space-48;
+
+      @media (max-width: $breakpoint-xs) {
+        margin-bottom: $space-24;
+      }
     }
 
     &__actions {
@@ -153,6 +158,7 @@
       gap: $space-8;
       max-width: 500px;
     }
+
     &__actions-btn {
       width: 50%;
     }
@@ -165,16 +171,17 @@
       padding: $space-12 $space-16;
       border: 2px solid $color-border;
       border-radius: $radius-btn;
-      transition: border-color $transition-base,
-                  background-color $transition-base;
+      transition: border-color $transition-base;
 
       &:hover {
-        border: 2px solid $color-accent;
+        border-color: $color-accent;
       }
     }
 
 
     &__form-card {
+      animation: slideInFromRight 0.8s ease-out;
+
       @media (max-width: $breakpoint-lg) {
         display: none;
       }
@@ -184,6 +191,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: $space-8;
+
     }
 
     &__badge {
@@ -193,5 +201,4 @@
       @include rounded(50px)
     }
   }
-
 </style>
