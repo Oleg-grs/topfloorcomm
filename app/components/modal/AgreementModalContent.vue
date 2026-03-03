@@ -10,8 +10,8 @@
         ответственностью «ГОРТОПСТРОЙ» (сокращенное наименование – ООО «ГОРТОПСТРОЙ»)
         (ОГРН: 1261800000857, ИНН: 1800046327) (далее — Оператор) на обработку
         персональных данных на интернет-сайте
-        <a href="https://gortopstroy.ru" target="_blank" rel="noopener noreferrer">
-          https://gortopstroy.ru
+        <a :href="SITE_URL" target="_blank" rel="noopener noreferrer">
+         {{ SITE_URL }}
         </a>
         и его поддоменах (далее — Сайт) в соответствии с требованиями Федерального
         закона от 27.07.2006 № 152-ФЗ «О персональных данных».
@@ -81,8 +81,8 @@
           Согласие может быть отозвано субъектом персональных данных или его
           представителем путем направления письменного заявления Оператору по адресу
           электронной почты:
-          <a href="mailto:alex83gorshkov@yandex.ru">
-            alex83gorshkov@yandex.ru
+          <a :href="EMAIL_LINK">
+            {{ EMAIL }}
           </a>.
         </li>
 
@@ -106,6 +106,7 @@
 
 <script setup>
 import { useModal } from '@/composables/useModal'
+import {EMAIL, SITE_URL} from "@/utils/constants.js";
 
 const { closeModal } = useModal()
 

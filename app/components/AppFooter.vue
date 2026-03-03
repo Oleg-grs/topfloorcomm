@@ -12,9 +12,9 @@
         </div>
         <div id="contacts" class="footer__info">
           <h4 class="footer__info-title">Контакты</h4>
-          <a class="footer__info-tel" href="tel:+79292787853"> +7 (929) 278-78-53 </a>
-          <a class="footer__info-mail" href="mailto:alex83gorshkov@yandex.ru">
-            alex83gorshkov@yandex.ru
+          <a class="footer__info-tel" :href="PHONE_NUMBER_LINK"> {{ PHONE_NUMBER }} </a>
+          <a class="footer__info-mail" :href="EMAIL_LINK">
+            {{ EMAIL }}
           </a>
           <div class="footer__info-soc1al">
             <a href="https://vk.com/club235911673" target="_blank" rel="noopener" aria-label="Мы ВКонтакте">
@@ -46,6 +46,7 @@
 </template>
 
 <script setup>
+  import { PHONE_NUMBER, PHONE_NUMBER_LINK, EMAIL } from "@/utils/constants.js";
 
 </script>
 
@@ -105,7 +106,7 @@
   .soc1al-icon {
     width: 24px;
     height: 24px;
-    fill: currentColor; /* цвет = color родителя */
+    fill: currentColor;
     transition: transform .2s;
     a:hover & { transform: scale(1.15); }
   }

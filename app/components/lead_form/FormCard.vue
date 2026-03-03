@@ -83,7 +83,7 @@
         >
 
         <label for="agree">
-          Нажимая на кнопку «Отправить заявку», я даю
+          Я даю
           <button
               type="button"
               class="form-card__link"

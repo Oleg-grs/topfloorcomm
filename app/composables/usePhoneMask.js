@@ -1,4 +1,3 @@
-// composables/usePhoneMask.js
 export const usePhoneMask = () => {
 	const formatPhone = (value) => {
 		const digits = value.replace(/\D/g, '')

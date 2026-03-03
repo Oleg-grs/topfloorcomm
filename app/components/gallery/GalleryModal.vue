@@ -19,6 +19,7 @@
             <NuxtImg
                 :src="allImages[currentImage]"
                 :alt="`Услуга по устройству ${images.title}`"
+                preload
                 @load="onImageLoad"
             />
           </div>
@@ -177,8 +178,7 @@
     const el = thumbsRef.value
     if (!el) return
 
-    // на ~3 миниатюры за шаг
-    const step = 3 * (80 + 12) // width + gap
+    const step = 3 * (80 + 12)
     el.scrollBy({ left: direction * step, behavior: 'smooth' })
   }
 </script>
@@ -349,11 +349,11 @@
 
     &__miniature {
       display: flex;
-      gap: 12px;
-      padding: 16px;
+      gap: $space-12;
+      padding: $space-16;
       overflow-x: auto;
       background: #1a1d23;
-      border-radius: 12px;
+      border-radius: $radius-btn;
       scrollbar-width: none;
       cursor: grab;
 

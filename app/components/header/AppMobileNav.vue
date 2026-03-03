@@ -12,7 +12,7 @@
           </NuxtLink>
         </li>
       </ul>
-      <a class="mobile-nav__phone" href="tel:+79292787853"> +7 (929) 278-78-53 </a>
+      <a class="mobile-nav__phone" :href="PHONE_NUMBER_LINK"> {{ PHONE_NUMBER }} </a>
     </div>
   </nav>
 </template>
