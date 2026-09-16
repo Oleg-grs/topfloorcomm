@@ -1,6 +1,6 @@
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 
-export default defineNuxtConfig({
+export default ({
   ssr: true,
 
   compatibilityDate: '2026-02-11',
