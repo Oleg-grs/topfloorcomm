@@ -24,6 +24,9 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@img/sharp-wasm32": "^0.35.4",
+    "@types/node": "^22.20.3",
+    "nuxt-yandex-metrika": "^2.0.2",
     "prettier": "3.8.1",
     "sass": "^1.97.3",
     "sass-loader": "^16.0.7",

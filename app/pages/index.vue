@@ -27,6 +27,11 @@
     ogImage,
     ogUrl: url,
     robots: 'index, follow',
-    yandexVerification: 'f6f1ec12dcd6974f'
+    yandexVerification: 'f6f1ec12dcd6974f',
+    meta: [{ 
+        name: "google-site-verification", 
+        content: "KX1a5i2XQebJepuurrXnx-UWNaE7JmdNGq5icmXFpJ4" 
+      }
+    ]
   })
 </script>

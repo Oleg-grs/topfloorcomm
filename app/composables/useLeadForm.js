@@ -16,7 +16,7 @@ export const useLeadForm = () => {
 			return true
 		} catch (e) {
 			console.error(e)
-			error.value = 'Что-то сломалось. Мы уже работаем над решением проблемы. Вы можете позвонить нам по телефону.</a>'
+			error.value = 'Что-то сломалось. Мы уже работаем над решением проблемы. Вы можете позвонить нам по телефону.'
 			return false
 		} finally {
 			isSubmitting.value = false

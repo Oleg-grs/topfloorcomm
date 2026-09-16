@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
     const payload = qs.stringify({
         access_token: config.vkToken,
-        v: config.vkApiVersion, // например '5.199'
+        v: config.vkApiVersion, 
         peer_id: peerId,
         random_id: randomId,
         message: messageText
